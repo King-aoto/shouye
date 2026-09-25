@@ -7,7 +7,6 @@
     <meta name="description" content="语文课下注释与理解性默写资源汇总平台">
     <meta name="keywords" content="语文,课下注释,理解性默写">
     <link rel="shortcut icon" href="./images/favicon.png">
-    <!-- 全部样式已本地化，随网页一起上传即可，不会丢失样式 -->
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/font-awesome.css">
     <link rel="stylesheet" href="./css/templatemo-softy-pinko.css">
@@ -16,7 +15,7 @@
     <link rel="stylesheet" href="./css/orange.css">
     <link rel="stylesheet" href="./css/fonts/thicccboi.css">
     <style>
-      /* ===== 自定样式（写在页面内，随网页一起上传不会丢失） ===== */
+      /* ===== 自定样式 ===== */
       
       /* 0. 引入自定义字体 */
       @font-face {
@@ -27,14 +26,14 @@
         font-display: swap;
       }
 
-      /* 1. 电脑端：上标题 (h1) */
+      /* 1. 电脑端：上标题 */
       .welcome-area .header-text h1 {
         font-size: 75px !important; 
         line-height: 1.4 !important;
         font-family: 'ZiHunBianTaoTi', 'Microsoft YaHei', sans-serif !important; 
       }
       
-      /* 2. 电脑端：小标题 (p) */
+      /* 2. 电脑端：小标题 */
       .welcome-area .header-text p {
         font-size: 50px !important; 
         line-height: 1.4 !important;
@@ -52,88 +51,84 @@
         height: auto;
       }
 
-      /* ===== 手机端专用适配 (屏幕宽度小于 765px) ===== */
+      /* ===== 手机端彻底修复 (屏幕宽度小于 765px) ===== */
       @media (max-width: 765px) {
-        /* 1. 顶部图片缩小 */
-        .top-left-image { 
-          width: 40px; 
-          top: 15px; 
-          left: 15px; 
-        }
+        /* 1. 左上角图片缩小 */
+        .top-left-image { width: 40px; top: 15px; left: 15px; }
         
-        /* 2. 大标题减小 */
-        .welcome-area .header-text h1 { 
-          font-size: 32px !important; 
-          line-height: 1.4 !important;
-        }
+        /* 2. 顶部大标题减小 */
+        .welcome-area .header-text h1 { font-size: 32px !important; line-height: 1.4 !important; }
         
-        /* 3. 小标题减小 */
-        .welcome-area .header-text p { 
-          font-size: 20px !important; 
-          line-height: 1.4 !important;
-        }
+        /* 3. 顶部小标题减小 */
+        .welcome-area .header-text p { font-size: 20px !important; line-height: 1.4 !important; }
         
-        /* 4. 限制头图高度，留出下方空间 */
+        /* 4. 大幅度缩短头图高度 */
         .welcome-area {
-          min-height: 320px !important; 
+          min-height: 280px !important; 
           height: auto !important;
-          padding-top: 70px !important;
-          padding-bottom: 20px !important;
+          padding-top: 60px !important;
+          padding-bottom: 10px !important;
           background-size: cover !important;
           background-position: center top !important;
         }
 
-        /* 5. 强制显示下方功能区块 */
+        /* 5. 强行干掉下方所有可能产生空白的多余高度 (关键修复) */
         .section.home-feature {
           display: block !important;
           visibility: visible !important;
           opacity: 1 !important;
           padding-top: 10px !important;
-          padding-bottom: 20px !important;
-        }
-
-        /* 6. 核心：让三个框在手机端变成一栏（垂直排列） */
-        .section.home-feature .row > div {
-          width: 100% !important;     /* 强制占满一行 */
-          flex: 0 0 100% !important;
-          max-width: 100% !important;
-          margin-bottom: 15px !important; /* 卡片之间的间距 */
+          padding-bottom: 10px !important;
+          min-height: 0 !important;  /* 干掉多余的最小高度 */
+          height: auto !important;   /* 干掉被撑开的高度 */
         }
         
-        /* 7. 缩小卡片的内边距和尺寸 */
+        /* 针对原模板可能存在的紫色大背景块，强行砍掉其高度 */
+        .section.home-feature .container, 
+        .section.home-feature .row,
+        .section.home-feature .col-lg-12 {
+          height: auto !important;
+          min-height: 0 !important;
+          padding-top: 0 !important;
+          padding-bottom: 0 !important;
+        }
+
+        /* 6. 核心：让三个框在手机端变成一栏（垂直排列）并紧凑 */
+        .section.home-feature .row > div {
+          width: 100% !important;
+          flex: 0 0 100% !important;
+          max-width: 100% !important;
+          margin-bottom: 10px !important; /* 缩小框的间距 */
+        }
+        
+        /* 7. 缩小卡片内边距 */
         .features-small-item {
           display: block !important;
           visibility: visible !important;
           opacity: 1 !important;
-          padding: 15px 10px !important; /* 缩小内边距 */
+          padding: 12px 10px !important;
           text-align: center !important;
           border-radius: 10px !important;
         }
 
-        /* 8. 调整卡片标题和图标的大小 */
-        .features-small-item .icon img {
-          width: 40px !important; /* 图标缩小 */
-          height: auto !important;
-        }
+        /* 8. 缩小图标和标题 */
+        .features-small-item .icon img { width: 35px !important; height: auto !important; }
         .features-small-item .features-title {
-          font-size: 18px !important; /* 标题缩小 */
-          margin-top: 8px !important;
-          margin-bottom: 12px !important;
+          font-size: 16px !important;
+          margin-top: 5px !important;
+          margin-bottom: 8px !important;
         }
 
-        /* 9. 优化按钮外观，方便手机点击 */
+        /* 9. 优化按钮 */
         .features-small-item .btn {
           width: 80% !important;     
-          padding: 10px 0 !important;
-          font-size: 15px !important;
-          margin-top: 5px !important;
+          padding: 8px 0 !important;
+          font-size: 14px !important;
+          margin-top: 0 !important;
         }
         
-        /* 10. 页脚 */
-        footer {
-          position: relative !important;
-          margin-top: 20px !important;
-        }
+        /* 10. 页脚紧凑 */
+        footer { position: relative !important; margin-top: 10px !important; }
       }
 
       /* 4. 页脚说明文字 */
@@ -150,11 +145,9 @@
   </head>
   <body>
     
-    <!-- 左上角自定义图片 -->
     <img src="./images/xiaohui.png" alt="左上角图片" class="top-left-image">
 
     <div><!-- ***** Header Area Start ***** --><!-- ***** Header Area End ***** --><!-- ***** Welcome Area Start ***** --><div id="welcome" class="welcome-area"><!-- ***** Header Text Start ***** --><div class="header-text"><div class="container"><div class="row"><div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12"><h1>语文资料整理汇总平台</h1><p>语文课下注释/理解性默写</p></div></div></div></div><!-- ***** Header Text End ***** --></div><!-- ***** Welcome Area End ***** --><!-- ***** Features Small Start ***** --><section class="section home-feature"><div class="container"><div class="row"><div class="col-lg-12"><div class="row"><!-- ***** Features Small Item Start ***** --><div data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s" class="col-lg-4 col-md-6 col-sm-6 col-12"><div class="features-small-item"><div class="icon"><i><img src="./images/featured-item-01.png" alt=""></i></div><h5 class="features-title">语文理解性默写</h5><button type="button" class="btn btn-primary btn-sm px-3" onclick="window.open('https://linan1479.github.io/lijiemoxie/','_blank')">点击跳转</button></div></div><!-- ***** Features Small Item End ***** --><!-- ***** Features Small Item Start ***** --><div data-scroll-reveal="enter bottom move 50px over 0.6s after 0.4s" class="col-lg-4 col-md-6 col-sm-6 col-12"><div class="features-small-item"><div class="icon"><i><img src="./images/featured-item-01.png" alt=""></i></div><h5 class="features-title">语文课下注释</h5><button type="button" class="btn btn-primary btn-sm px-3" onclick="window.open('https://mz09.dpdns.org','_blank')">点击跳转</button></div></div><!-- ***** Features Small Item End ***** --><!-- ***** Features Small Item Start ***** --><div data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s" class="col-lg-4 col-md-6 col-sm-6 col-12"><div class="features-small-item"><div class="icon"><i><img src="./images/featured-item-01.png" alt=""></i></div><h5 class="features-title">预留入口</h5><p>暂不开放</p></div></div><!-- ***** Features Small Item End ***** --></div></div></div></div></section><!-- ***** Features Small End ***** --><!-- ***** Features Big Item Start ***** --><!-- ***** Features Big Item End ***** --><!-- ***** Features Big Item Start ***** --><!-- ***** Features Big Item End ***** --><!-- ***** Home Parallax Start ***** --><!-- ***** Home Parallax End ***** --><!-- ***** Testimonials Start ***** --><!-- ***** Testimonials End ***** --><!-- ***** Pricing Plans Start ***** --><!-- ***** Pricing Plans End ***** --><!-- ***** Counter Parallax Start ***** --><section class="counter"></section><!-- ***** Counter Parallax End ***** --><!-- ***** Blog Start ***** --><!-- ***** Blog End ***** --><!-- ***** Contact Us Start ***** --><!-- ***** Contact Us End ***** --><!-- ***** Footer Start ***** --><footer><div class="container"><div class="row"><div class="col-lg-12 col-md-12 col-sm-12"></div></div><div class="row"><div class="col-lg-12"><p class="footer-note">供高三5班/9班使用，页面修改时间：2026-09-25（20:05）</p></div></div></div></footer><!-- jQuery --><!-- Bootstrap --><!-- Plugins --><!-- Global Init --></div>
-    <!-- 全部脚本已本地化 -->
     <script src="./js/jquery.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js/plugins.js"></script>
