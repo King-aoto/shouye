@@ -7,7 +7,8 @@
     <meta name="description" content="语文课下注释与理解性默写资源汇总平台">
     <meta name="keywords" content="语文,课下注释,理解性默写">
     <link rel="shortcut icon" href="./images/favicon.png">
-    <!-- 全部样式已本地化，随网页一起上传即可，不会丢失样式 -->
+    
+    <!-- 全部样式已本地化 -->
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/font-awesome.css">
     <link rel="stylesheet" href="./css/templatemo-softy-pinko.css">
@@ -15,8 +16,9 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/orange.css">
     <link rel="stylesheet" href="./css/fonts/thicccboi.css">
+    
     <style>
-      /* ===== 自定样式（写在页面内，随网页一起上传不会丢失） ===== */
+      /* ===== 自定样式 ===== */
       
       /* 0. 引入自定义字体 */
       @font-face {
@@ -42,7 +44,7 @@
         font-weight: bold !important;
       }
 
-      /* 3. 电脑端：左上角图片 */
+      /* 3. 左上角图片 */
       .top-left-image {
         position: absolute;
         top: 30px;
@@ -50,102 +52,6 @@
         z-index: 999;
         width: 80px;
         height: auto;
-      }
-
-      /* ===== 手机端专用适配 (屏幕宽度小于 767px) ===== */
-      @media (max-width: 767px) {
-        /* 1. 顶部图片缩小 */
-        .top-left-image { 
-          width: 40px; 
-          top: 15px; 
-          left: 15px; 
-        }
-        
-        /* 2. 大标题减小 */
-        .welcome-area .header-text h1 { 
-          font-size: 30px !important; 
-          line-height: 1.3 !important;
-        }
-        
-        /* 3. 小标题减小 */
-        .welcome-area .header-text p { 
-          font-size: 18px !important; 
-          line-height: 1.3 !important;
-        }
-        
-        /* 4. 背景区域高度缩短 */
-        .welcome-area {
-          min-height: 260px !important; 
-          height: auto !important;
-          padding-top: 60px !important;
-          padding-bottom: 30px !important;
-          background-size: cover !important; 
-          background-position: center center !important;
-          background-color: #333 !important; 
-        }
-
-        /* 5. 下方功能区块正常间距 */
-        .section.home-feature {
-          padding-top: 15px !important;
-          padding-bottom: 15px !important;
-        }
-        
-        /* 6. 卡片一栏显示 */
-        .section.home-feature .row > div {
-          width: 100% !important;     
-          flex: 0 0 100% !important;
-          max-width: 100% !important;
-          padding: 0 15px !important;
-          margin-bottom: 15px !important; 
-        }
-        
-        /* 7. 卡片恢复正常内边距和尺寸 */
-        .features-small-item {
-          padding: 20px 15px !important; 
-          text-align: center !important;
-          border-radius: 10px !important;
-          box-shadow: 0 3px 12px rgba(0,0,0,0.06) !important;
-          background: #fff !important;
-        }
-
-        /* 8. 图标正常大小 */
-        .features-small-item .icon {
-          margin-bottom: 10px !important;
-        }
-        .features-small-item .icon img {
-          width: 45px !important; 
-          height: auto !important;
-        }
-
-        /* 9. 卡片标题 */
-        .features-small-item .features-title {
-          font-size: 17px !important; 
-          margin-top: 5px !important;
-          margin-bottom: 12px !important;
-        }
-
-        /* 10. 按钮正常大小 */
-        .features-small-item .btn {
-          width: 70% !important;     
-          padding: 10px 0 !important;
-          font-size: 15px !important;
-          margin-top: 5px !important;
-        }
-        
-        /* 11. 预留入口里的“暂不开放”文字 */
-        .features-small-item > p {
-          font-size: 15px !important;
-          margin: 0 0 5px 0 !important;
-        }
-
-        /* 12. 页脚正常间距 */
-        footer {
-          margin-top: 10px !important;
-        }
-        footer .footer-note {
-          padding: 15px 15px 25px !important;
-          font-size: 13px !important;
-        }
       }
 
       /* 4. 电脑端页脚说明文字 */
@@ -158,16 +64,115 @@
         padding: 20px 15px 30px;
         opacity: 0.92;
       }
+
+      /* ===== 手机端屏蔽提示样式 ===== */
+      #mobile-block-message {
+        display: none; /* 默认隐藏 */
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: #f5f5f5;
+        z-index: 99999;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 30px;
+      }
+      #mobile-block-message h2 {
+        font-size: 24px;
+        color: #ff8a65;
+        margin-bottom: 15px;
+      }
+      #mobile-block-message p {
+        font-size: 16px;
+        color: #666;
+        line-height: 1.6;
+        max-width: 300px;
+      }
+      #mobile-block-message .icon {
+        font-size: 60px;
+        color: #ff8a65;
+        margin-bottom: 20px;
+      }
     </style>
   </head>
   <body>
     
-    <!-- 左上角自定义图片 -->
-    <img src="./images/xiaohui.png" alt="左上角图片" class="top-left-image">
+    <!-- 手机端屏蔽提示 (默认隐藏) -->
+    <div id="mobile-block-message">
+      <div class="icon">💻</div>
+      <h2>请在电脑端访问</h2>
+      <p>为了获得最佳浏览体验，本平台目前仅支持电脑端访问，感谢您的配合。</p>
+    </div>
 
-    <div><!-- ***** Header Area Start ***** --><!-- ***** Header Area End ***** --><!-- ***** Welcome Area Start ***** --><div id="welcome" class="welcome-area"><!-- ***** Header Text Start ***** --><div class="header-text"><div class="container"><div class="row"><div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12"><h1>语文资料整理汇总平台</h1><p>语文课下注释/理解性默写</p></div></div></div></div><!-- ***** Header Text End ***** --></div><!-- ***** Welcome Area End ***** --><!-- ***** Features Small Start ***** --><section class="section home-feature"><div class="container"><div class="row"><div class="col-lg-12"><div class="row"><!-- ***** Features Small Item Start ***** --><div data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s" class="col-lg-4 col-md-6 col-sm-6 col-12"><div class="features-small-item"><div class="icon"><i><img src="./images/featured-item-01.png" alt=""></i></div><h5 class="features-title">语文理解性默写</h5><button type="button" class="btn btn-primary btn-sm px-3" onclick="window.open('https://linan1479.github.io/lijiemoxie/','_blank')">点击跳转</button></div></div><!-- ***** Features Small Item End ***** --><!-- ***** Features Small Item Start ***** --><div data-scroll-reveal="enter bottom move 50px over 0.6s after 0.4s" class="col-lg-4 col-md-6 col-sm-6 col-12"><div class="features-small-item"><div class="icon"><i><img src="./images/featured-item-01.png" alt=""></i></div><h5 class="features-title">语文课下注释</h5><button type="button" class="btn btn-primary btn-sm px-3" onclick="window.open('https://mz09.dpdns.org','_blank')">点击跳转</button></div></div><!-- ***** Features Small Item End ***** --><!-- ***** Features Small Item Start ***** --><div data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s" class="col-lg-4 col-md-6 col-sm-6 col-12"><div class="features-small-item"><div class="icon"><i><img src="./images/featured-item-01.png" alt=""></i></div><h5 class="features-title">预留入口</h5><p>暂不开放</p></div></div><!-- ***** Features Small Item End ***** --></div></div></div></div></section><!-- ***** Features Small End ***** --><!-- ***** Features Big Item Start ***** --><!-- ***** Features Big Item End ***** --><!-- ***** Features Big Item Start ***** --><!-- ***** Features Big Item End ***** --><!-- ***** Home Parallax Start ***** --><!-- ***** Home Parallax End ***** --><!-- ***** Testimonials Start ***** --><!-- ***** Testimonials End ***** --><!-- ***** Pricing Plans Start ***** --><!-- ***** Pricing Plans End ***** --><!-- ***** Counter Parallax Start ***** --><section class="counter"></section><!-- ***** Counter Parallax End ***** --><!-- ***** Blog Start ***** --><!-- ***** Blog End ***** --><!-- ***** Contact Us Start ***** --><!-- ***** Contact Us End ***** --><!-- ***** Footer Start ***** --><footer><div class="container"><div class="row"><div class="col-lg-12 col-md-12 col-sm-12"></div></div><div class="row"><div class="col-lg-12"><p class="footer-note">供高三5班/9班使用，页面修改时间：2026-09-25（20:05）</p></div></div></div></footer><!-- jQuery --><!-- Bootstrap --><!-- Plugins --><!-- Global Init --></div>
-    
-    <!-- 全部脚本已本地化，删除了引起冲突的 waypoints 和 counterup -->
+    <!-- 主页面内容（手机端将被隐藏） -->
+    <div id="main-content">
+      <!-- 左上角自定义图片 -->
+      <img src="./images/xiaohui.png" alt="左上角图片" class="top-left-image">
+
+      <div>
+        <div id="welcome" class="welcome-area">
+          <div class="header-text">
+            <div class="container">
+              <div class="row">
+                <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12">
+                  <h1>语文资料整理汇总平台</h1>
+                  <p>语文课下注释/理解性默写</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section class="section home-feature">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="row">
+                  <!-- 卡片 1 -->
+                  <div data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s" class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="features-small-item">
+                      <div class="icon"><i><img src="./images/featured-item-01.png" alt=""></i></div>
+                      <h5 class="features-title">语文理解性默写</h5>
+                      <button type="button" class="btn btn-primary btn-sm px-3" onclick="window.open('https://linan1479.github.io/lijiemoxie/','_blank')">点击跳转</button>
+                    </div>
+                  </div>
+                  <!-- 卡片 2 -->
+                  <div data-scroll-reveal="enter bottom move 50px over 0.6s after 0.4s" class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="features-small-item">
+                      <div class="icon"><i><img src="./images/featured-item-01.png" alt=""></i></div>
+                      <h5 class="features-title">语文课下注释</h5>
+                      <button type="button" class="btn btn-primary btn-sm px-3" onclick="window.open('https://mz09.dpdns.org','_blank')">点击跳转</button>
+                    </div>
+                  </div>
+                  <!-- 卡片 3 -->
+                  <div data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s" class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="features-small-item">
+                      <div class="icon"><i><img src="./images/featured-item-01.png" alt=""></i></div>
+                      <h5 class="features-title">预留入口</h5>
+                      <p>暂不开放</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer>
+          <div class="container">
+            <div class="row"><div class="col-lg-12 col-md-12 col-sm-12"></div></div>
+            <div class="row">
+              <div class="col-lg-12">
+                <p class="footer-note">供高三5班/9班使用，页面修改时间：2026-09-25（20:05）</p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- 全部脚本已本地化 -->
     <script src="./js/jquery.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js/plugins.js"></script>
@@ -177,35 +182,39 @@
     <script src="./js/imgfix.min.js"></script>
     <script src="./js/custom.js"></script>
 
-    <!-- 强制初始化动画代码，绕过 custom.js 可能存在的报错 -->
+    <!-- 页面动画初始化 -->
     <script>
       window.addEventListener('load', function() {
         if (typeof ScrollReveal !== 'undefined') {
           var sr = ScrollReveal();
-          
-          // 标题弹出效果
-          sr.reveal('.welcome-area .header-text h1', { 
-            duration: 1000, 
-            origin: 'bottom', 
-            distance: '50px', 
-            delay: 200 
-          });
-          sr.reveal('.welcome-area .header-text p', { 
-            duration: 1000, 
-            origin: 'bottom', 
-            distance: '50px', 
-            delay: 400 
-          });
-          
-          // 下方卡片依次缓慢上升
-          sr.reveal('.features-small-item', { 
-            duration: 1000, 
-            origin: 'bottom', 
-            distance: '50px', 
-            interval: 200 
-          });
+          sr.reveal('.welcome-area .header-text h1', { duration: 1000, origin: 'bottom', distance: '50px', delay: 200 });
+          sr.reveal('.welcome-area .header-text p', { duration: 1000, origin: 'bottom', distance: '50px', delay: 400 });
+          sr.reveal('.features-small-item', { duration: 1000, origin: 'bottom', distance: '50px', interval: 200 });
         }
       });
+    </script>
+
+    <!-- ===== 手机端屏蔽逻辑 ===== -->
+    <script>
+      (function() {
+        // 判断是否是移动端（屏幕宽度小于 768px 或 包含了移动端 UA 标识）
+        var isMobile = window.innerWidth < 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        
+        if (isMobile) {
+          // 隐藏主页内容
+          var mainContent = document.getElementById('main-content');
+          if (mainContent) {
+            mainContent.style.display = 'none';
+          }
+          // 显示提示信息
+          var blockMsg = document.getElementById('mobile-block-message');
+          if (blockMsg) {
+            blockMsg.style.display = 'flex';
+          }
+          // 禁用页面滚动
+          document.body.style.overflow = 'hidden';
+        }
+      })();
     </script>
   </body>
 </html>
